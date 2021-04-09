@@ -12,35 +12,44 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="USER")
+@Table(name = "USER")
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	@NotBlank(message="Name field is required")
-	@Size(min=2,max=20,message="Name must be in between 2 and 20 characters")
+
+	@NotBlank(message = "Name field is required")
+	@Size(min = 2, max = 20, message = "Name must be in between 2-20 characters")
 	private String name;
-	@Column(unique=true)
+
+	@Email(regexp = "^(.+)@(.+)$")
 	private String email;
+
+	@Size(min = 6, message = "Password must be in between 6-20 characters")
 	private String password;
+
 	private String role;
+
 	private boolean enabled;
+
 	private String imageUrl;
-	@Column(length=500)
+
+	@Column(length = 500)
 	private String about;
-	
-	@OneToMany(cascade=CascadeType.ALL,fetch= FetchType.LAZY, mappedBy="user")
-	private List<Favorite> Favorites=new ArrayList<>();
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+	private List<Favorite> Favorites = new ArrayList<>();
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
-				+ ", enabled=" + enabled + ", imageUrl=" + imageUrl + ", about=" + about + ", Favorites=" + Favorites
-				+ "]";
+		return "User [about=" + about + ", email=" + email + ", name=" + name + ", password=" + password + "]";
 	}
 
 	public List<Favorite> getFavorites() {
@@ -119,6 +128,5 @@ public class User {
 	public void setAbout(String about) {
 		this.about = about;
 	}
-	
 
 }

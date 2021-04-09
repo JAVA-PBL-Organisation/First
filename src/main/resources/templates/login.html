@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>OK</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-md-6 offset-md-3">
+            <div class="my-card mt-5">
+              <div class="container text-center">
+                <img
+                  style="width: 80px"
+                  src=""
+                  th:src="@{/image/login.png}"
+                  alt=""
+                />
+              </div>
+              <h1 class="text-center">Login!</h1>
+              <form novalidate action="#" th:action="@{/login}" method="post">
+                <div th:if="${param.error}" class="alert alert-danger">
+                  Invalid Email or Password
+                </div>
+
+                <div th:if="${param.logout}" class="alert alert-success">
+                  Logged you out!
+                </div>
+
+                <!--   email field -->
+
+                <div class="mb-3">
+                  <label for="email_field" class="form-label">Email</label>
+                  <input
+                    name="username"
+                    type="text"
+                    class="form-control"
+                    id="email_field"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter here"
+                    required
+                  />
+                </div>
+                <!--   password field -->
+
+                <div class="mb-3">
+                  <label for="password_field" class="form-label"
+                    >Password</label
+                  >
+                  <input
+                    name="password"
+                    type="password"
+                    class="form-control"
+                    id="password_field"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter here"
+                    required
+                  />
+                </div>
+
+                <div></div>
+
+                <div class="container text-center mb-1">
+                  <button
+                    type="submit"
+                    class="btn bg-primary text-white btn-block"
+                  >
+                    Submit
+                  </button>
+                </div>
+                <a class="link" href="/signup"
+                  >Not have an account? Register here!</a
+                >
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

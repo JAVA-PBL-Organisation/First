@@ -16,6 +16,15 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
 
     <title th:text="${title}">Base Page</title>
     <link rel="stylesheet" href="" th:href="@{/css/style.css}" />
@@ -47,19 +56,13 @@
                 >Home</a
               >
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="#" th:href="@{/about}">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" th:href="@{/contact}">Contact us</a>
+              <a class="nav-link" href="#" th:text="${user.name}"></a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <!--         th:href="@{/signup/}" -->
-            <li class="nav-item">
-              <a class="nav-link" href="#" th:href="@{/signup}">Register</a>
+              <a class="nav-link" href="#" th:href="@{/logout}">Logout</a>
             </li>
           </ul>
         </div>
@@ -67,7 +70,29 @@
     </nav>
     <!-- end of navbar -->
 
-    <div th:replace="${content}"></div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <span onclick="toggleSidebar()" class="crossBtn">&times;</span>
+
+      <a href="#" class="item"><i class="fas fa-home"></i> HOME</a>
+      <a href="#" class="item"
+        ><i class="fas fa-chevron-circle-down"></i> INFO</a
+      >
+      <a href="#" class="item"
+        ><i class="fas fa-user-circle"></i> YOUR PROFILE</a
+      >
+      <a href="#" class="item"><i class="fas fa-star"></i> FAVORITES</a>
+      <a href="#" class="item"><i class="fas fa-cog"></i> SETTINGS</a>
+
+      <a href="#" class="item"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <i onclick="toggleSidebar()" id="dashboardToggle" class="fas fa-bars"></i>
+      <div th:replace="${content}"></div>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -83,6 +108,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
-    <script src="" th:src="@{js/script.js}"></script>
+    <script src="" th:src="@{/js/script.js}"></script>
   </body>
 </html>
