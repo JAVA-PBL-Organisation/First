@@ -74,17 +74,27 @@
     <div class="sidebar">
       <span onclick="toggleSidebar()" class="crossBtn">&times;</span>
 
-      <a href="#" class="item"><i class="fas fa-home"></i> HOME</a>
-      <a href="#" class="item"
+      <a href="#" th:href="@{/}" class="item"
+        ><i class="fas fa-home"></i> HOME</a
+      >
+      <a onclick="toggleInfobar()" href="#" class="item"
         ><i class="fas fa-chevron-circle-down"></i> INFO</a
       >
+      <div class="info-bar">
+        <a href="#" class="item"><i class="fas fa-hotel"></i> HOSTELS</a>
+        <a href="#" class="item"><i class="fas fa-concierge-bell"></i> MESS</a>
+        <a href="#" class="item"><i class="fas fa-utensils"></i> OUTLETS</a>
+        <a href="#" class="item"><i class="fas fa-award"></i> CLUBS</a>
+      </div>
       <a href="#" class="item"
         ><i class="fas fa-user-circle"></i> YOUR PROFILE</a
       >
       <a href="#" class="item"><i class="fas fa-star"></i> FAVORITES</a>
       <a href="#" class="item"><i class="fas fa-cog"></i> SETTINGS</a>
 
-      <a href="#" class="item"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+      <a href="#" th:href="@{/logout}" class="item"
+        ><i class="fas fa-sign-out-alt"></i> LOGOUT</a
+      >
       <div class="divider"></div>
     </div>
 

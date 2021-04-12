@@ -15,3 +15,13 @@ const toggleSidebar = () => {
 
     }
 };
+
+const toggleInfobar = () => {
+
+    if($(".info-bar").is(":visible")) {
+        $(".info-bar").css("display","none");
+    }
+    else {
+        $(".info-bar").css("display","block");
+    }
+}
