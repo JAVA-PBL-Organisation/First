@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="admin/base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>OK</title>
+  </head>
+  <body>
+    <section>
+      <div class="list-container text-center">
+        <div class="list-group">
+            <button th:each="item : ${items}" type="button" class="list-group-item list-group-item-action" ><a href="" th:href="@{${'/admin/' + type + '/' + item.id}}" th:text="${item.name}"></a></button>        
+        </div>
+            <button class="btn btn-primary mt-5"><a class="text-white" href="" th:href="@{${'/admin/' + type + '/new'}}">New</a></button>
+      </div>
+    </section>
+  </body>
+</html>

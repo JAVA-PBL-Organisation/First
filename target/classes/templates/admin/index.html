@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="admin/base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>OK</title>
+  </head>
+  <body>
+    <section>
+        <div class="index-container list-group text-center">
+            <button type="button" class="list-group-item list-group-item-action"><a href="" th:href="@{/admin/hostels}">Hostels</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="" th:href="@{/admin/messs}">Messes</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="" th:href="@{/admin/outlets}">Outlets</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="" th:href="@{/admin/clubs}">Clubs</a></button>
+          </div>
+    </section>
+  </body>
+</html>

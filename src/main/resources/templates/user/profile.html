@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="user/base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>OK</title>
+  </head>
+  <body>
+    <section>
+      <h1 class="text-center" th:text="${title}"></h1>
+      <div class="page-content page-container" id="page-content">
+        <div class="padding">
+          <div class="row container-fluid d-flex justify-content-center">
+            <div class="col-md-12">
+              <div class="card user-card-full">
+                <div class="row m-l-0 m-r-0">
+                  <div class="col-sm-4 bg-c-lite-green user-profile">
+                    <div class="card-block text-center text-white">
+                      <div class="m-b-25">
+                        <img
+                          src=""
+                          th:src="@{${'/image/' + user.imageUrl}}"
+                          class="profile-picture"
+                          alt="User-Profile-Image"
+                        />
+                      </div>
+                      <h6 class="f-w-600" th:text="${user.name}"></h6>
+                      <p th:text="${user.profession}"></p>
+                      <div class="mt-5">
+                        <a
+                          href="#"
+                          th:href="@{/user/profile/edit}"
+                          class="text-white"
+                          ><i
+                            class="mdi mdi-square-edit-outline feather icon-edit m-t-20 f-16"
+                          ></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="card-block">
+                      <h6 class="m-b-20 p-b-5 b-b-default f-w-600">
+                        Information
+                      </h6>
+                      <div class="row m-t-20">
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Email</p>
+                          <h6
+                            class="text-muted f-w-400"
+                            th:text="${user.email}"
+                          ></h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Phone</p>
+                          <h6
+                            class="text-muted f-w-400"
+                            th:text="${user.contact}"
+                          ></h6>
+                        </div>
+                      </div>
+                      <div class="row m-t-20">
+                        <div class="col-sm-12">
+                          <p class="m-b-10 f-w-600">About</p>
+                          <h6
+                            class="text-muted f-w-400"
+                            th:text="${user.about}"
+                          ></h6>
+                        </div>
+                        <div class="row m-t-20">
+                          <div class="col-sm-6">
+                            <p class="m-b-10 f-w-600">Skills</p>
+                            <h6
+                              class="text-muted f-w-400"
+                              th:text="${user.skills}"
+                            ></h6>
+                          </div>
+                          <div class="col-sm-6">
+                            <p class="m-b-10 f-w-600">Interests</p>
+                            <h6
+                              class="text-muted f-w-400"
+                              th:text="${user.interests}"
+                            ></h6>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

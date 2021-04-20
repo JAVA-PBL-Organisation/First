@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="user/base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>OK</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section>
+      <div class="container info-container">
+        <h1 class="text-center mb-2" th:text="${item.name}"></h1>
+        <div
+          id="carouselExampleControls"
+          class="carousel slide show-carousel mb-2"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src=""
+                th:src="@{${'/image/' + item.imageUrl}}"
+                class="d-block w-100"
+                alt=""
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src=""
+                th:src="@{${'/image/' + item.imageUrl}}"
+                class="d-block w-100"
+                alt=""
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src=""
+                th:src="@{${'/image/' + item.imageUrl}}"
+                class="d-block w-100"
+                alt=""
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div>
+          <div class="row g-3">
+            <div
+              th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+              class="col-12"
+            >
+              <label class="form-label">Address</label>
+              <div class="form-control">
+                <span th:text="${item.address}"></span>
+              </div>
+            </div>
+
+            <div th:if="${type == 'club'}" class="col-12">
+              <label class="form-label">About</label>
+              <div class="form-control">
+                <span th:text="${item.about}"></span>
+              </div>
+            </div>
+
+            <div
+              th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+              class="col-md-6"
+            >
+              <label class="form-label">Contact No</label>
+              <div class="form-control">
+                <span th:text="${item.contactNo}"></span>
+              </div>
+            </div>
+
+            <div th:if="${type == 'club'}" class="col-md-6">
+              <label class="form-label">President</label>
+              <div class="form-control">
+                <span th:text="${item.president}"></span>
+              </div>
+            </div>
+
+            <div
+              th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+              class="col-md-6"
+            >
+              <label class="form-label">Email/Website</label>
+              <div class="form-control">
+                <span th:text="${item.email}"></span>
+              </div>
+            </div>
+
+            <div
+              th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+              class="col-md-4"
+            >
+              <label class="form-label">Owner Name</label>
+              <div class="form-control">
+                <span th:text="${item.owner}"></span>
+              </div>
+            </div>
+
+            <div th:if="${type == 'hostel'}" class="col-md-4">
+              <label class="form-label">Fees </label>
+              <div class="form-control">
+                <span th:text="${item.cost}"></span>
+              </div>
+            </div>
+
+            <div th:if="${type == 'mess'}" class="col-md-4">
+              <label class="form-label">Price (per meal)</label>
+              <div class="form-control">
+                <span th:text="${item.cost}"></span>
+              </div>
+            </div>
+
+            <div th:if="${type == 'outlet'}" class="col-md-4">
+              <label class="form-label">Category</label>
+              <div class="form-control">
+                <span th:text="${item.category}"></span>
+              </div>
+            </div>
+
+            <div
+              th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+              class="col-md-4"
+            >
+              <label class="form-label">Dist. from college</label>
+              <div class="form-control">
+                <span th:text="${item.distance}"></span>
+              </div>
+            </div>
+
+            <div class="text-center mt-3">
+              <button class="btn btn-warning text-white">
+                <a href="#" style="text-decoration: none">Add to Favorites</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

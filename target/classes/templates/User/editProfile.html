@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="user/base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>OK</title>
+  </head>
+  <body>
+    <section>
+      <div class="form-container">
+        <div th:if="${message != 'NULL'}">
+          <p th:text="${message}" class="alert alert-danger"></p>
+        </div>
+        <h1 class="text-center" th:text="${title}"></h1>
+        <form
+          action=""
+          th:action="@{/user/profile}"
+          method="post"
+          th:object="${user}"
+          class="row g-3"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group col-md-6">
+            <label for="inputName" class="form-label">Name</label>
+            <input
+              name="name"
+              type="text"
+              class="form-control"
+              id="inputName"
+              th:value="${user.name}"
+            />
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="inputAbout" class="form-label">About</label>
+            <input
+              name="about"
+              type="text"
+              class="form-control"
+              id="inputAbout"
+              th:value="${user.about}"
+            />
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="inputContact" class="form-label">Contact</label>
+            <input
+              name="contact"
+              type="text"
+              class="form-control"
+              id="inputContact"
+              th:value="${user.contact}"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputProfession" class="form-label">Profession</label>
+            <input
+              name="profession"
+              type="text"
+              class="form-control"
+              id="inputProfession"
+              th:value="${user.profession}"
+            />
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="inputSkills" class="form-label">Skills</label>
+            <input
+              name="skills"
+              type="text"
+              class="form-control"
+              id="inputSkills"
+              th:value="${user.skills}"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputInterests" class="form-label">Interests</label>
+            <input
+              name="interests"
+              type="text"
+              class="form-control"
+              id="inputInterests"
+              th:value="${user.interests}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Add Profile Picture</label>
+            <input
+              name="profilePicture"
+              class="form-control"
+              type="file"
+              id="formFile"
+            />
+          </div>
+
+          <div class="col-12 mt-2 text-center">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

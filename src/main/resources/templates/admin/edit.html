@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="admin/base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>OK</title>
+  </head>
+  <body>
+    <section>
+      <div class="form-container mt-5">
+        <h1 class="text-center mb-2" th:text="${item.name}"></h1>
+        <form
+        action=""
+        th:action="@{${'/admin/' + type + '/update/' + item.id}}"
+        method=""
+        th:method="put"
+        th:object="${item}"  class="row g-3">
+
+            <div class="col-md-6">
+              <label for="name" class="form-label">Name</label>
+              <input name="name" th:value="${item.name}" type="text" class="form-control" id="name">
+            </div>
+
+            <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-6">
+              <label for="contact" class="form-label">Contact No</label>
+              <input name="contactNo" th:value="${item.contactNo}" type="text" class="form-control" id="contact">
+            </div>
+
+            <div th:if="${type == 'club'}" class="col-md-6">
+                <label for="president" class="form-label">President</label>
+                <input name="president" th:value="${item.president}" type="text" class="form-control" id="president">
+            </div>
+
+            <div th:if="${type == 'club'}" class="col-md-6">
+                <label for="contact" class="form-label">Contact of President</label>
+                <input name="contactNo" th:value="${item.contactNo}" type="text" class="form-control" id="contact">
+            </div>
+
+            <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-12">
+              <label for="address" class="form-label">Address</label>
+              <input name="address" th:value="${item.address}" type="text" class="form-control" id="address">
+            </div>
+
+            <div th:if="${type == 'club'}" class="col-md-12">
+                <label for="about" class="form-label">About</label>
+                <input name="about" th:value="${item.about}" type="text" class="form-control" id="about">
+            </div>
+
+            <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-4">
+              <label for="owner" class="form-label">Owner</label>
+              <input name="owner" th:value="${item.owner}" type="text" class="form-control" id="owner">
+            </div>
+
+            <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-4">
+                <label for="email" class="form-label">Email/Website</label>
+                <input name="email" th:value="${item.email}" type="text" class="form-control" id="email">
+            </div>
+
+            <div th:if="${type == 'hostel'}" class="col-md-3">
+              <label for="fee" class="form-label">Fees</label>
+              <input name="cost" th:value="${item.cost}" type="text" class="form-control" id="fee">
+            </div>
+
+            <div th:if="${type == 'mess'}" class="col-md-3">
+                <label for="fee" class="form-label">Price (per meal)</label>
+                <input name="cost" th:value="${item.cost}" type="text" class="form-control" id="fee">
+            </div>
+
+            <div th:if="${type == 'outlet'}" class="col-md-3">
+                <label for="fee" class="form-label">Category</label>
+                <input name="category" th:value="${item.category}" type="text" class="form-control" id="fee">
+            </div>
+            
+            <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-3">
+                <label for="distance" class="form-label">Dist. from college</label>
+                <input name="distance" th:value="${item.distance}" type="text" class="form-control" id="distance">
+            </div>
+            
+
+            <div class="col-12 mb-2">
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </form>
+          <form action="" th:action="@{${'/admin/' + type + '/' + item.id}}" th:method="delete">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

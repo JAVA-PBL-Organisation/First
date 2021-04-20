@@ -13,9 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name = "USER")
@@ -34,6 +37,17 @@ public class User {
 
 	@Size(min = 6, message = "Password must be in between 6-20 characters")
 	private String password;
+
+	private String contact;
+
+	@Value("${some.key:-}")
+	private String profession;
+
+	@Value("${some.key:-}")
+	private String interests;
+
+	@Value("${some.key:-}")
+	private String skills;
 
 	private String role;
 
@@ -62,7 +76,6 @@ public class User {
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -95,6 +108,38 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getProfession() {
+		return profession;
+	}
+
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
+
+	public String getInterests() {
+		return interests;
+	}
+
+	public void setInterests(String interests) {
+		this.interests = interests;
+	}
+
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
 	}
 
 	public String getRole() {

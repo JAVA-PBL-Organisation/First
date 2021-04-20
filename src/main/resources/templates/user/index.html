@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="user/base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>OK</title>
+  </head>
+  <body>
+    <section>
+      <div class="mb-3">
+        <h1 class="text-center" th:text="${title}"></h1>
+      </div>
+      <div
+        id="carouselExampleControlsNoTouching"
+        class="carousel slide index-carousel"
+        data-bs-touch="false"
+        data-bs-interval="false"
+      >
+        <div class="carousel-inner">
+          <div
+            th:each="item, itr : ${items}"
+            th:class="${itr.first}? 'carousel-item active': 'carousel-item'"
+          >
+            <img
+              src=""
+              th:src="@{${'/image/' + item.imageUrl}}"
+              class="d-block w-100"
+              alt=""
+            />
+            <div class="carousel-caption text-center">
+              <button class="btn btn-primary">
+                <a
+                  href="#"
+                  style="text-decoration: none"
+                  class="text-white"
+                  th:href="@{${'/user/' + type + '/' + item.id}}"
+                  th:text="${item.name}"
+                  ></a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControlsNoTouching"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControlsNoTouching"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+  </body>
+</html>

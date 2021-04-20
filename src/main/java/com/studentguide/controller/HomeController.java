@@ -1,5 +1,7 @@
 package com.studentguide.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -31,8 +33,14 @@ public class HomeController {
 	private UserRepository userRepository;
 
 	@GetMapping("/")
-	public String home(Model m) {
-
+	public String home(Model m, Principal principal) {
+		boolean isLoggedIn;
+		if (principal == null) {
+			isLoggedIn = false;
+		} else {
+			isLoggedIn = true;
+		}
+		m.addAttribute("isLoggedIn", isLoggedIn);
 		m.addAttribute("title", "Home-Student guide");
 		return "home";
 	}
@@ -57,6 +65,7 @@ public class HomeController {
 	// this is for registering user
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
+			Principal principal,
 			// @RequestParam(value = "agreement", defaultValue = "false") boolean agreement,
 			HttpSession session) {
 
@@ -74,6 +83,10 @@ public class HomeController {
 			user.setRole("ROLE_USER");
 			user.setImageUrl("default.png");
 			user.setPassword(PasswordEncoder.encode(user.getPassword()));
+			user.setInterests("-");
+			user.setSkills("-");
+			user.setProfession("-");
+			user.setContact("-");
 
 			// System.out.println("Agreement:"+agreement);
 
@@ -97,5 +110,4 @@ public class HomeController {
 		m.addAttribute("title", "Login-Student guide");
 		return "login";
 	}
-
 }

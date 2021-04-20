@@ -26,14 +26,25 @@
       crossorigin="anonymous"
     ></script>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@1&family=Libre+Baskerville&family=Nunito+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
     <title th:text="${title}">Base Page</title>
-    <link rel="stylesheet" href="" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="" th:href="@{/css/dashboard.css}" />
   </head>
   <body>
     <!--   navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Student Guide Application</a>
+        <a class="navbar-brand" href="#">Student Guide</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -58,11 +69,18 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#" th:text="${user.name}"></a>
+              <a
+                class="nav-link active"
+                href="#"
+                th:href="@{/user/profile}"
+                th:text="${user.name}"
+              ></a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#" th:href="@{/logout}">Logout</a>
+              <a class="nav-link active" href="#" th:href="@{/logout}"
+                >Logout</a
+              >
             </li>
           </ul>
         </div>
@@ -81,16 +99,27 @@
         ><i class="fas fa-chevron-circle-down"></i> INFO</a
       >
       <div class="info-bar">
-        <a href="#" class="item"><i class="fas fa-hotel"></i> HOSTELS</a>
-        <a href="#" class="item"><i class="fas fa-concierge-bell"></i> MESS</a>
-        <a href="#" class="item"><i class="fas fa-utensils"></i> OUTLETS</a>
-        <a href="#" class="item"><i class="fas fa-award"></i> CLUBS</a>
+        <a href="#" th:href="@{/user/hostels}" class="item"
+          ><i class="fas fa-hotel"></i> HOSTELS</a
+        >
+        <a href="#" th:href="@{/user/messes}" class="item"
+          ><i class="fas fa-concierge-bell"></i> MESS</a
+        >
+        <a href="#" th:href="@{/user/outlets}" class="item"
+          ><i class="fas fa-store"></i> OUTLETS</a
+        >
+        <a href="#" th:href="@{/user/clubs}" class="item"
+          ><i class="fas fa-award"></i> CLUBS</a
+        >
       </div>
-      <a href="#" class="item"
-        ><i class="fas fa-user-circle"></i> YOUR PROFILE</a
+      <a href="#" th:href="@{/user/profile}" class="item"
+        ><i class="fas fa-user-circle"></i> PROFILE</a
       >
       <a href="#" class="item"><i class="fas fa-star"></i> FAVORITES</a>
-      <a href="#" class="item"><i class="fas fa-cog"></i> SETTINGS</a>
+      <!-- 
+      <a href="#" class="item"><i class="fas fa-cog"></i> SETTINGS</a>  -->
+
+      <a th:if="${user.role == 'ROLE_ADMIN'}" href="#" th:href="@{/admin/index}"  class="item"><i class="fas fa-tools"></i> ADMIN</a>
 
       <a href="#" th:href="@{/logout}" class="item"
         ><i class="fas fa-sign-out-alt"></i> LOGOUT</a
@@ -99,8 +128,10 @@
     </div>
 
     <!-- Content -->
-    <div class="content">
+    <div class="bars">
       <i onclick="toggleSidebar()" id="dashboardToggle" class="fas fa-bars"></i>
+    </div>
+    <div class="content">
       <div th:replace="${content}"></div>
     </div>
 

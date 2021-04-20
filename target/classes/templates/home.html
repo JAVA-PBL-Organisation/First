@@ -10,19 +10,27 @@
   </head>
   <body>
     <section class="banner d-flex justify-content-center align-items-center">
-      <div class="text-center">
-        <h1 class="font-weight-bold">Student Guide Application</h1>
+      <div class="home-container text-center">
+        <h1 class="home-header">STUDENT GUIDE</h1>
 
-        <p>
-          Know each information you want related to your college related things
-          with just one touch
+        <p class="home-paragraph">
+          Welcome Scholar! We are here with bunch of information, be it finding hostel or knowing college clubs, We got you covered here.
+          Lets hop in and find it out!
         </p>
         <button class="btn bg-primary btn-ig text-white">
           <a
             href="#"
+            th:unless="${isLoggedIn}"
             th:href="@{/signup}"
             style="text-decoration: none; color: white"
             >Get Started</a
+          >
+          <a
+            href="#"
+            th:if="${isLoggedIn}"
+            th:href="@{/user/dashboard}"
+            style="text-decoration: none; color: white"
+            >Explore</a
           >
         </button>
       </div>

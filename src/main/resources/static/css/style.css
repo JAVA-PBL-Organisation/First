@@ -17,74 +17,22 @@ body {
   background: #ffffff;
 }
 
-/* Sidebar Styling */
+.home-header {
+  font-family: 'Alegreya', serif;
+  font-size: 70px;
+}
+
+.home-paragraph {
+  font-size: 20px;
+}
+
+.home-container {
+  margin-left: 20%;
+  margin-right: 20%;
+}
 
 @media only screen and (max-width: 600px) {
-  .sidebar {
-    display: none;
-    width: 80% !important;
-    background: white;
-    height: 100vh;
-    position: fixed;
-    padding-top: 20px;
+  .home-container {
+    margin: 0;
   }
-
-  .content {
-    margin-left: 0% !important;
-  }
-}
-
-.sidebar {
-  width: 28%;
-  background: white;
-  height: 100%;
-  position: fixed;
-  padding-top: 45px;
-}
-
-.sidebar a {
-  display: block;
-  width: 100%;
-  padding: 10px 25px;
-  text-decoration: none;
-  color: gray;
-}
-
-.sidebar a:hover {
-  background: #e2e2e2;
-}
-
-.sidebar .divider {
-  height: 0.5px;
-  width: 100%;
-  background: #e2e2e2;
-  margin-top: 10px;
-}
-
-.sidebar .crossBtn {
-  position: absolute;
-  top: 0;
-  right: 35px;
-  font-size: 36px;
-  cursor: pointer;
-}
-
-.sidebar .item .fas {
-  margin-right: 5px;
-}
-
-#dashboardToggle {
-  margin: 5px;
-}
-
-.content {
-  margin-left: 30%;
-}
-
-.info-bar {
-  margin-left: 15%;
-  border-left: #e2e2e2 1px solid;
-  border-top: #e2e2e2 1px solid;
-  border-bottom: #e2e2e2 1px solid;
-  display: none;
 }

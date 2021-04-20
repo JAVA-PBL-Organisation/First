@@ -1,0 +1,304 @@
+/* Sidebar Styling */
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+    width: 80% !important;
+    background: white;
+    height: 100vh;
+    position: fixed;
+    padding-top: 20px;
+  }
+
+  .content {
+    margin-left: 0% !important;
+  }
+  .info-container h1,
+  h2 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 10pt;
+    color: #009688;
+  }
+}
+
+.sidebar {
+  width: 28%;
+  background: white;
+  height: 100%;
+  position: fixed;
+  padding-top: 45px;
+  border-right: 0.5px #e2e2e2 solid;
+}
+
+.sidebar a {
+  display: block;
+  width: 100%;
+  padding: 10px 25px;
+  text-decoration: none;
+  color: gray;
+}
+
+.sidebar a:hover {
+  background: #e2e2e2;
+}
+
+.sidebar .divider {
+  height: 0.5px;
+  width: 100%;
+  background: #e2e2e2;
+  margin-top: 10px;
+}
+
+.sidebar .crossBtn {
+  position: absolute;
+  top: 0;
+  right: 35px;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.sidebar .item .fas {
+  margin-right: 5px;
+}
+
+.bars {
+  margin: 1%;
+}
+
+.content {
+  margin-left: 30%;
+}
+
+.info-bar {
+  margin-left: 15%;
+  border-left: #e2e2e2 1px solid;
+  border-top: #e2e2e2 1px solid;
+  border-bottom: #e2e2e2 1px solid;
+  display: none;
+}
+
+.carousel {
+  width: 640px;
+  height: 360px;
+  margin: auto;
+}
+
+/* Content Showing Page styling */
+
+.info-container {
+  max-width: 800px;
+  background-color: white;
+  padding: 2%;
+  margin: auto;
+  border-radius: 2%;
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  color: #009688;
+}
+
+.info-container h1 {
+  font-size: 24pt;
+}
+
+.info-container h1 {
+  margin: 0;
+}
+
+.info-container .form-control {
+  background-color: #e2e2e2;
+}
+
+.info-container h1,
+h5 {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.index-carousel {
+  width: 720px;
+  height: 400px;
+}
+
+/* Show page styles */
+
+.show-carousel {
+  max-width: 400px;
+  max-height: 200px;
+}
+
+/* Profile page styling */
+
+body {
+  background-color: #f9f9fa;
+}
+
+.padding {
+  padding: 3rem !important;
+}
+
+.user-card-full {
+  overflow: hidden;
+}
+
+.card {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 20px 0 rgba(51, 56, 58, 0.08);
+  box-shadow: 0 1px 20px 0 rgba(51, 56, 58, 0.08);
+  border: none;
+  margin-bottom: 30px;
+}
+
+.m-r-0 {
+  margin-right: 0px;
+}
+
+.m-l-0 {
+  margin-left: 0px;
+}
+
+.user-card-full .user-profile {
+  border-radius: 5px 0 0 5px;
+}
+
+.bg-c-lite-green {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#f29263),
+    to(#ee5a6f)
+  );
+  background: linear-gradient(to right, #ee5a6f, #f29263);
+}
+
+.user-profile {
+  padding: 20px 0;
+}
+
+.card-block {
+  padding: 1.25rem;
+}
+
+.m-b-25 {
+  margin-bottom: 25px;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+.card .card-block p {
+  line-height: 35px;
+  font-size: 18px;
+}
+
+@media only screen and (min-width: 1400px) {
+  p {
+    font-size: 14px;
+  }
+}
+
+.card-block {
+  padding: 1.25rem;
+}
+
+.b-b-default {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.p-b-5 {
+  padding-bottom: 5px !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.text-muted {
+  color: #919aa3 !important;
+}
+
+.b-b-default {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.f-w-600 {
+  font-weight: 600;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.p-b-5 {
+  padding-bottom: 5px !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+
+/* Profile Edit Form */
+
+.form-container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Dashboard Landing styles */
+
+.main-dashboard {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 2rem;
+}
+
+.main-header {
+  font-family: "Libre Baskerville", serif;
+  font-size: 50px;
+}
+
+.main-paragraph {
+  margin-top: 3%;
+  font-size: 25px;
+  font-family: "Baskervville", serif;
+  font-style: italic;
+}
+
+.keyword {
+  color: #009688;
+  font-style: normal;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  width: 70%;
+  margin-left: 15%;
+  margin-left: 15%;
+}
+
+/* Admin Section Styles */
+.index-container, .list-container {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 15%;
+}
+
+.index-container a, .list-container a {
+  text-decoration: none;
+}
