@@ -1,9 +1,11 @@
 body {
   background: #e2e2e2 !important;
 }
+
 .bg-primary {
   background: #009688 !important;
 }
+
 .banner {
   width: 100%;
   height: 93vh;
@@ -18,7 +20,7 @@ body {
 }
 
 .home-header {
-  font-family: 'Alegreya', serif;
+  font-family: "Alegreya", serif;
   font-size: 70px;
 }
 
@@ -35,4 +37,12 @@ body {
   .home-container {
     margin: 0;
   }
+}
+
+.info-bar {
+  margin-left: 15%;
+  border-left: #e2e2e2 1px solid;
+  border-top: #e2e2e2 1px solid;
+  border-bottom: #e2e2e2 1px solid;
+  display: none;
 }

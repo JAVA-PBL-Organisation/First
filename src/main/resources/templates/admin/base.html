@@ -42,7 +42,10 @@
   </head>
   <body>
     <!--   navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #009688"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Student Guide</a>
         <button
@@ -115,10 +118,21 @@
       <a href="#" th:href="@{/user/profile}" class="item"
         ><i class="fas fa-user-circle"></i> PROFILE</a
       >
-      <a href="#" class="item"><i class="fas fa-star"></i> FAVORITES</a>
-      <!-- 
-      <a href="#" class="item"><i class="fas fa-cog"></i> SETTINGS</a>  -->
-      <a href="#" th:href="@{/admin/index}" class="item"><i class="fas fa-tools"></i> ADMIN</a>
+      <a href="#" th:href="@{/user/show-favorites/0}" class="item"
+        ><i class="fas fa-id-card-alt"></i> VIEW FAVORITES</a
+      >
+
+      <a href="#" th:href="@{/user/add-fav}" class="item"
+        ><i class="fas fa-star"></i> FAVORITES</a
+      >
+
+      <a
+        th:if="${user.role == 'ROLE_ADMIN'}"
+        href="#"
+        th:href="@{/admin/index}"
+        class="item"
+        ><i class="fas fa-tools"></i> ADMIN</a
+      >
 
       <a href="#" th:href="@{/logout}" class="item"
         ><i class="fas fa-sign-out-alt"></i> LOGOUT</a

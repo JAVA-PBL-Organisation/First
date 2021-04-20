@@ -11,79 +11,121 @@
   <body>
     <section>
       <div class="form-container">
-        <h1 class="text-center text-capitalize mb-2" th:text="${'Add New ' + type}"></h1>
+        <h1
+          class="text-center text-capitalize mb-2"
+          th:text="${'Add New ' + type}"
+        ></h1>
         <form
-        action=""
-        th:action="@{${'/admin/' + type + '/add'}}"
-        th:object="${item}"
-        th:method="post"
-         class="row g-3">
-            <div class="col-md-6">
-                <label for="name" class="form-label">Name</label>
-                <input name="name" type="text" class="form-control" id="name">
-              </div>
-  
-              <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-6">
-                <label for="contact" class="form-label">Contact No</label>
-                <input name="contactNo" type="text" class="form-control" id="contact">
-              </div>
-  
-              
-            <div th:if="${type == 'club'}" class="col-md-6">
-                <label for="president" class="form-label">President</label>
-                <input name="president" type="text" class="form-control" id="president">
-            </div>
+          action=""
+          th:action="@{${'/admin/' + type + '/add'}}"
+          th:object="${item}"
+          th:method="post"
+          class="row g-3"
+        >
+          <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input name="name" type="text" class="form-control" id="name" />
+          </div>
 
-              <div th:if="${type == 'club'}" class="col-md-6">
-                  <label for="contact" class="form-label">Contact of President</label>
-                  <input name="contactNo" type="text" class="form-control" id="contact">
-              </div>
-  
-              <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-12">
-                <label for="address" class="form-label">Address</label>
-                <input name="address" type="text" class="form-control" id="address">
-              </div>
-  
-              <div th:if="${type == 'club'}" class="col-md-12">
-                  <label for="about" class="form-label">About</label>
-                  <input name="about" type="text" class="form-control" id="about">
-              </div>
-  
-              <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-4">
-                <label for="owner" class="form-label">Owner</label>
-                <input name="owner" type="text" class="form-control" id="owner">
-              </div>
-  
-              <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-4">
-                  <label for="email" class="form-label">Email/Website</label>
-                  <input name="email" type="text" class="form-control" id="email">
-              </div>
-  
-              <div th:if="${type == 'hostel'}" class="col-md-3">
-                <label for="fee" class="form-label">Fees</label>
-                <input  name="cost" type="text" class="form-control" id="fee">
-              </div>
-  
-              <div th:if="${type == 'mess'}" class="col-md-3">
-                  <label for="fee" class="form-label">Price (per meal)</label>
-                  <input  name="cost" type="text" class="form-control" id="fee">
-              </div>
-  
-              <div th:if="${type == 'outlet'}" class="col-md-3">
-                  <label for="fee" class="form-label">Category</label>
-                  <input  name="category" type="text" class="form-control" id="fee">
-              </div>
-              
-              <div th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}" class="col-md-3">
-                  <label for="distance" class="form-label">Dist. from college</label>
-                  <input  name="distance" type="text" class="form-control" id="distance">
-              </div>
-              
-  
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary">Add</button>
-              </div>
-          </form>
+          <div
+            th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+            class="col-md-6"
+          >
+            <label for="contact" class="form-label">Contact No</label>
+            <input
+              name="contactNo"
+              type="text"
+              class="form-control"
+              id="contact"
+            />
+          </div>
+
+          <div th:if="${type == 'club'}" class="col-md-6">
+            <label for="president" class="form-label">President</label>
+            <input
+              name="president"
+              type="text"
+              class="form-control"
+              id="president"
+            />
+          </div>
+
+          <div th:if="${type == 'club'}" class="col-md-6">
+            <label for="contact" class="form-label">Contact of President</label>
+            <input
+              name="contactNo"
+              type="text"
+              class="form-control"
+              id="contact"
+            />
+          </div>
+
+          <div
+            th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+            class="col-md-12"
+          >
+            <label for="address" class="form-label">Address</label>
+            <input
+              name="address"
+              type="text"
+              class="form-control"
+              id="address"
+            />
+          </div>
+
+          <div th:if="${type == 'club'}" class="col-md-12">
+            <label for="about" class="form-label">About</label>
+            <input name="about" type="text" class="form-control" id="about" />
+          </div>
+
+          <div
+            th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+            class="col-md-4"
+          >
+            <label for="owner" class="form-label">Owner</label>
+            <input name="owner" type="text" class="form-control" id="owner" />
+          </div>
+
+          <div
+            th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+            class="col-md-4"
+          >
+            <label for="email" class="form-label">Email/Website</label>
+            <input name="email" type="text" class="form-control" id="email" />
+          </div>
+
+          <div th:if="${type == 'hostel'}" class="col-md-3">
+            <label for="fee" class="form-label">Fees</label>
+            <input name="cost" type="text" class="form-control" id="fee" />
+          </div>
+
+          <div th:if="${type == 'mess'}" class="col-md-3">
+            <label for="fee" class="form-label">Price (per meal)</label>
+            <input name="cost" type="text" class="form-control" id="fee" />
+          </div>
+
+          <div th:if="${type == 'outlet'}" class="col-md-3">
+            <label for="fee" class="form-label">Category</label>
+            <input name="category" type="text" class="form-control" id="fee" />
+          </div>
+
+          <div
+            th:if="${type == 'hostel' or type == 'mess' or type == 'outlet'}"
+            class="col-md-3"
+          >
+            <label for="distance" class="form-label">Dist. from college</label>
+            <input
+              name="distance"
+              type="text"
+              class="form-control"
+              id="distance"
+            />
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Add</button>
+          </div>
+        </form>
       </div>
     </section>
   </body>

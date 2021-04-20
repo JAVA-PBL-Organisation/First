@@ -10,7 +10,7 @@
   </head>
   <body>
     <section>
-      <div class="mb-3">
+      <div class="items-container mb-3">
         <h1 class="text-center" th:text="${title}"></h1>
       </div>
       <div
@@ -38,8 +38,7 @@
                   class="text-white"
                   th:href="@{${'/user/' + type + '/' + item.id}}"
                   th:text="${item.name}"
-                  ></a
-                >
+                ></a>
               </button>
             </div>
           </div>

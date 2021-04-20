@@ -42,7 +42,10 @@
   </head>
   <body>
     <!--   navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav
+      class="navbar sticky-top navbar-expand-lg navbar-dark"
+      style="background-color: #009688"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Student Guide</a>
         <button
@@ -112,14 +115,26 @@
           ><i class="fas fa-award"></i> CLUBS</a
         >
       </div>
+
       <a href="#" th:href="@{/user/profile}" class="item"
         ><i class="fas fa-user-circle"></i> PROFILE</a
       >
-      <a href="#" class="item"><i class="fas fa-star"></i> FAVORITES</a>
-      <!-- 
-      <a href="#" class="item"><i class="fas fa-cog"></i> SETTINGS</a>  -->
 
-      <a th:if="${user.role == 'ROLE_ADMIN'}" href="#" th:href="@{/admin/index}"  class="item"><i class="fas fa-tools"></i> ADMIN</a>
+      <a href="#" th:href="@{/user/show-favorites/0}" class="item"
+        ><i class="fas fa-id-card-alt"></i> VIEW FAVORITES</a
+      >
+
+      <a href="#" th:href="@{/user/add-fav}" class="item"
+        ><i class="fas fa-star"></i> FAVORITES</a
+      >
+
+      <a
+        th:if="${user.role == 'ROLE_ADMIN'}"
+        href="#"
+        th:href="@{/admin/index}"
+        class="item"
+        ><i class="fas fa-tools"></i> ADMIN</a
+      >
 
       <a href="#" th:href="@{/logout}" class="item"
         ><i class="fas fa-sign-out-alt"></i> LOGOUT</a
@@ -132,6 +147,17 @@
       <i onclick="toggleSidebar()" id="dashboardToggle" class="fas fa-bars"></i>
     </div>
     <div class="content">
+      <!--  message box -->
+      <div th:if="${session.message}" class="container">
+        <div
+          th:classappend="${'alert-'+ session.message.type}"
+          class="alert text-center"
+          role="alert"
+        >
+          <span th:text="${session.message.content}"></span>
+        </div>
+        <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+      </div>
       <div th:replace="${content}"></div>
     </div>
 
@@ -149,6 +175,25 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      function deleteFavorite(cid) {
+        swal({
+          title: "Are you sure?",
+          text: "you want to delete this..",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            window.location = "/user/delete/" + cid;
+          } else {
+            swal("Your contact is safe!!");
+          }
+        });
+      }
+    </script>
+
     <script src="" th:src="@{/js/script.js}"></script>
   </body>
 </html>

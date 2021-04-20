@@ -124,6 +124,10 @@ h5 {
   max-height: 200px;
 }
 
+.items-container {
+  margin-top: 5%;
+}
+
 /* Profile page styling */
 
 body {
@@ -251,7 +255,6 @@ h6 {
   margin-bottom: 10px;
 }
 
-
 /* Profile Edit Form */
 
 .form-container {
@@ -293,12 +296,43 @@ hr {
 }
 
 /* Admin Section Styles */
-.index-container, .list-container {
+.index-container,
+.list-container {
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 15%;
 }
 
-.index-container a, .list-container a {
+.index-container a,
+.list-container a {
   text-decoration: none;
+}
+
+i {
+  font-size: 24px;
+}
+
+.fav-card {
+  margin-right: 4%;
+  margin-left: 3%;
+}
+.my_profile_picture {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* search css */
+
+.seach-container {
+  position: relative;
+}
+.search-result {
+  position: absolute;
+  background: white;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  display: none;
 }
