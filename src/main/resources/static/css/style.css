@@ -67,6 +67,7 @@ body {
   right: 35px;
   font-size: 36px;
   cursor: pointer;
+  z-index:999999999999999999999999;
 }
 
 .sidebar .item .fas {
@@ -87,4 +88,33 @@ body {
   border-top: #e2e2e2 1px solid;
   border-bottom: #e2e2e2 1px solid;
   display: none;
+}
+i {
+	font-size:24px;
+}
+.card{
+	 margin-right: 4%;
+	 margin-left: 3%;
+}
+.my_profile_picture{
+	
+	width:37px;
+	height:37px;
+	 border-radius: 50%;
+	 object-fit:cover;
+	
+}
+/* seach css */
+
+.seach-container{
+	
+	position:relative;
+}
+.search-result{
+	position:absolute;
+	background:white;
+	width:100%;
+	padding:10px;
+	border: 1px solid gray;
+	display:none;
 }

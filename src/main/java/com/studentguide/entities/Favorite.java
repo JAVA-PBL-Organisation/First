@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="FAVORITE")
 public class Favorite {
@@ -16,15 +18,26 @@ public class Favorite {
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int cId;
 	private String name;
-	// to know why we added thier contact
+	// to know why we added their contact
 	@Column(length=500)
 	private String info;
-	// to set thier work they do
+	// to set their work they do
 	@Column(length=500)
 	private String work;
-	
+	private String email;
+	private String phone;
+	private String image;
+	@Column(length=1000)
+	private String description;
+	@Override
+	public String toString() {
+		return "Favorite [cId=" + cId + ", name=" + name + ", info=" + info + ", work=" + work + ", email=" + email
+				+ ", phone=" + phone + ", image=" + image + ", description=" + description + ", user=" + user + "]";
+	}
 	@ManyToOne
+	@JsonIgnore
 	private User user;
+	
 	public int getcId() {
 		return cId;
 	}
@@ -64,6 +77,7 @@ public class Favorite {
 	public String getImage() {
 		return image;
 	}
+	
 	public void setImage(String image) {
 		this.image = image;
 	}
@@ -73,10 +87,15 @@ public class Favorite {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	private String email;
-	private String phone;
-	private String image;
-	@Column(length=1000)
-	private String description;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		// TODO Auto-generated method stub
+		this.user= user;
+		
+	}
+
+	
 	
 }
